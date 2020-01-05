@@ -21,7 +21,7 @@ namespace Distributor.Worker.Consumers
             Log.Information("{amount} of work was requested", context.Message.Iterations);
 
             await Task.Delay(TimeSpan.FromMilliseconds(context.Message.Iterations));
-
+            
             // context.Publish(new ValueCreated(5.0m * context.Message.Iterations));
             await _event.PublishEvent(new ValueCreated(5.0m * context.Message.Iterations, Worker.Id));
         }

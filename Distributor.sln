@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Distributor.Messaging", "Di
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Distributor.Worker.Contracts", "Distributor.Worker.Contracts\Distributor.Worker.Contracts.csproj", "{17CEDCCA-2A30-41F9-8AC1-DAD403006E54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distributor.Worker.Faulty", "Distributor.Worker.Faulty\Distributor.Worker.Faulty.csproj", "{047A7039-F4A2-4C1F-8B7C-0EDB2A8BAACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Distributor.Worker.Faulty", "Distributor.Worker.Faulty\Distributor.Worker.Faulty.csproj", "{047A7039-F4A2-4C1F-8B7C-0EDB2A8BAACD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Distributor.Kafka.Producer", "Distributor.Kafka.Producer\Distributor.Kafka.Producer.csproj", "{0DE6F0F5-F3F2-4E64-86E3-4AE6C182FF51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distributor.Kafka.Consumer", "Distributor.Kafka.Consumer\Distributor.Kafka.Consumer.csproj", "{6A9E843A-F044-4893-99F9-D0C08273406A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{047A7039-F4A2-4C1F-8B7C-0EDB2A8BAACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{047A7039-F4A2-4C1F-8B7C-0EDB2A8BAACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{047A7039-F4A2-4C1F-8B7C-0EDB2A8BAACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE6F0F5-F3F2-4E64-86E3-4AE6C182FF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE6F0F5-F3F2-4E64-86E3-4AE6C182FF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE6F0F5-F3F2-4E64-86E3-4AE6C182FF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE6F0F5-F3F2-4E64-86E3-4AE6C182FF51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A9E843A-F044-4893-99F9-D0C08273406A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9E843A-F044-4893-99F9-D0C08273406A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9E843A-F044-4893-99F9-D0C08273406A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9E843A-F044-4893-99F9-D0C08273406A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
