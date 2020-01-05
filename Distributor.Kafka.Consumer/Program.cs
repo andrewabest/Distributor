@@ -34,8 +34,22 @@ namespace Distributor.Kafka.Consumer
                 };
 
                 using var c = new ConsumerBuilder<string, string>(conf).Build();
-                c.Subscribe("DoWork");
 
+                // TODO: What if I want to re-read a topic from the start, ignoring client offset?
+                // TODO: Figure out subscriptions vs assignments and seeking on a topic
+
+                //Normally there are two modes of operation when it comes to partition/consumer assignment:
+
+                //    .subscribe(…): Automatically handle it in the background by balancing across consumers in the consumer-group;
+                //    .assign(…): Manually decide which partitions to consume from.
+
+                // https://github.com/confluentinc/confluent-kafka-python/issues/373#issuecomment-442820804
+
+                var startOfTopic = new TopicPartition("DoWork", new Partition(0));
+                c.Assign(startOfTopic);
+                c.Seek(new TopicPartitionOffset(startOfTopic,  Offset.Beginning));
+                c.Subscribe("DoWork");
+                
                 var cts = new CancellationTokenSource();
                 Console.CancelKeyPress += (_, e) => {
                     e.Cancel = true; // prevent the process from terminating.
@@ -49,7 +63,7 @@ namespace Distributor.Kafka.Consumer
                         try
                         {
                             // TODO: How does this work in Kafka as opposed to Rabbit?
-                            // TODO: What if I want to re-read a topic from the start, ignoring client offset?
+                            // Seems it is poll-based, so clients pull from Kafka, as opposed to rabbit in which exchanges deliver messages
 
                             var cr = c.Consume(cts.Token);
                             Console.WriteLine($"Consumed message '{cr.Value}' at: '{cr.TopicPartitionOffset}'.");
